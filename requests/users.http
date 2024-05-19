@@ -1,0 +1,44 @@
+@baseUrl=http://localhost:3000/users
+@authsUrl=http://localhost:3000/auths
+
+### Get all users
+GET {{baseUrl}}
+
+### Try to login user
+POST {{authsUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "egdyezg.ehd@student.vinci.be",
+  "password": "didia10"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### update user
+PUT {{baseUrl}}/update
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "firstname": "sachin",
+  "lastname": "tendulkar",
+  "email": "egdyezg.ehd@student.vinci.be",
+  "phoneNumber": "0471862599"
+}
+
+
+### change password
+POST {{baseUrl}}/changepassword
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "oldPassword": "didia1",
+  "newPassword": "didia10",
+  "confirmationPassword": "didia10"
+}
+
+

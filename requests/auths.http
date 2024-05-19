@@ -1,0 +1,64 @@
+@baseUrl=http://localhost:3000/auths
+
+### Try to login user
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "admin.admin@vinci.be",
+  "password": "admin"
+}
+
+> {%
+  client.global.set("adminToken", response.body.token);
+%}
+
+### Try to login user
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+
+}
+
+###verify token
+GET {{baseUrl}}/user
+Authorization: {{adminToken}}
+
+### Try to register user
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "firstname": "haj",
+  "lastname": "hajou",
+  "email": "haj.h@student.vinci.be",
+  "phoneNumber": "123456789",
+  "password": "haj"
+}
+
+### Try to register user
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "firstname": "haj",
+  "lastname": "hajou",
+  "email": "haj.hoaaopou@student.vinci.be",
+  "phoneNumber": "123456789",
+  "password": "haj"
+}
+
+### Try to register user
+POST {{baseUrl}}/register
+Content-Type: application/json
+
+{
+  "firstname": "haj",
+  "lastname": "hajou",
+  "email": "HAJJjjjjjdddkocsikijsszJ.hu@vinci.be",
+  "phoneNumber": "123456789",
+  "password": "haj",
+  "role": "administratif"
+}
+

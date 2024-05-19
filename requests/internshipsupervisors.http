@@ -1,0 +1,35 @@
+@authsUrl=http://localhost:3000/auths
+@intershipsupervisors=http://localhost:3000/internshipSupervisors
+
+### Try to login user
+POST {{authsUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "elle.skile@student.vinci.be",
+  "password": "mdpuser.1"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Get list of intership supervisors for a company
+GET {{intershipsupervisors}}/company/2
+
+### Create a intership supervisor
+POST {{intershipsupervisors}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "firstName": "John",
+  "lastName": "Doe",
+  "email": "eqfgeuyqgl@gsrgr.com",
+  "phoneNumber": "123456789",
+  "idCompany": 2
+}
+
+### Get list of intership supervisors
+GET {{intershipsupervisors}}
+Authorization: {{token}}

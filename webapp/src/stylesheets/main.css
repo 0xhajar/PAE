@@ -1,0 +1,140 @@
+/* Class for a padding of 5 units */
+.p-5 {
+  margin: 0 auto;
+  width: 50%;
+  background-color: #f9f9f9;
+}
+
+/* Class for the page title */
+.page-title {
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.table {
+  margin: 0 10%;
+}
+
+.w-150 {
+  width: 150% !important;
+}
+
+/* This will change the scrollbar for the whole page */
+::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* color of the scroll thumb */
+  border-radius: 10px; /* roundness of the scroll thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* color of the scroll thumb when hovering */
+}
+
+#popup {
+  position: fixed;
+  bottom: 20px;
+  left: 85%;
+  transform: translateX(-50%);
+  background-color: blue; /* Change la couleur de fond en bleu */
+  color: white;
+  padding: 16px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 1000;
+}
+
+.grey-text {
+  color: grey;
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+
+* {
+  font-family: "Prompt", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  user-select: none;
+}
+
+.nav-link:hover {
+  background-color: #90B8F9;
+  border: none;
+}
+
+.navbar:hover {
+  background-color: #90B8F9;
+  border: none;
+}
+
+button {
+  background-color: #4E7CC7!important;
+  border: none;
+}
+
+button:hover {
+  background-color: #90B8F9!important;
+  border: none;
+}
+
+#removePic {
+  background-color: red!important;
+}
+
+#modifyPic {
+  background-color: green!important;
+}
+
+#blacklist {
+  background-color: red!important;
+  border: none;
+}
+
+#saveButton {
+  background-color: green!important;
+  border: none;
+}
+
+#reset {
+  background-color: #FFC107!important;
+  border: none;
+}
+
+#submitPassword {
+  background-color: green!important;
+  border: none;
+}
+
+#sauver {
+  background-color: green!important;
+  border: none;
+}
+
+#annuler {
+  background-color: grey!important;
+  border: none;
+}
+
+.greybutton {
+  background-color: #ACAEAA!important;
+  border: none;
+}
+
+.greybutton:hover {
+  background-color: #D3D3D3!important;
+  border: none;
+}
+
+#cancelButton {
+  background-color: grey!important;
+  border: none;
+}

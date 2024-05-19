@@ -1,0 +1,75 @@
+@authsUrl=http://localhost:3000/auths
+@contactUrl=http://localhost:3000/contacts
+
+### Try to login user
+POST {{authsUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "raphael.baroni@vinci.be",
+  "password": "Prof24,z"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Try to login user
+POST {{authsUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "didia.fechado@student.vinci.be",
+  "password": "didia2"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Refuse a contact
+POST {{contactUrl}}/2/refuse
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "refusalReason": "L'entreprise n'a plus besoin d'étudiants."
+}
+
+### Add a contact
+POST {{contactUrl}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "idCompany": 4
+}
+
+### Get list of contacts
+GET {{contactUrl}}
+Authorization: {{token}}
+
+### unfollow a contact
+POST {{contactUrl}}/1/unfollow
+Content-Type: application/json
+Authorization: {{token}}
+
+### meet a contact
+POST {{contactUrl}}/5/meet
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "date": "2021-06-01",
+  "hour": "14:00",
+  "meetPlace": "Rue de la Loi 16, 1000 Bruxelles"
+}
+
+### Get list of contacts for a company
+GET {{contactUrl}}/company/2
+Authorization: {{token}}
+
+### accept a contact
+POST {{contactUrl}}/19/accept
+Content-Type: application/json
+Authorization: {{token}}

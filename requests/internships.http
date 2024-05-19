@@ -1,0 +1,41 @@
+@authsUrl=http://localhost:3000/auths
+@contactUrl=http://localhost:3000/internships
+
+### Try to login user
+POST {{authsUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "hadjera.emroska@student.vinci.be",
+  "password": "1"
+}
+
+> {%
+  client.global.set("token", response.body.token);
+%}
+
+### Try to get all internships
+GET {{contactUrl}}
+Authorization: {{token}}
+
+### Try to add an internship
+POST {{contactUrl}}
+Authorization: {{token}}
+Content-Type: application/json
+
+{
+  "idCompany": 1,
+  "idContact": 104,
+  "internshipProject": "Internship 1",
+  "idInternshipSupervisor": 3,
+  "signatureDate": "2024-02-22"
+}
+
+### change internship subject
+PUT {{contactUrl}}
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+  "subject": "test"
+}
